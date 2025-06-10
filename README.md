@@ -15,12 +15,3 @@ Flaskで作った海外FXトレーダー向けのロット計算ツールです�
 git clone https://github.com/あなたのユーザー名/lot-lacl-tool.git
 cd lot-lacl-tool
 python app.py
-
-🛠 技術スタック
-Python 3.x
-
-Flask
-
-HTML（Jinja2テンプレート）
-
-Bootstrap（CSSフレームワーク）
