@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ロット計算ツール</title>
+    <!-- Bootstrap 読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5" style="max-width: 650px;">
+        <h1 class="mb-4 text-center">ロット計算ツール</h1>
+
+        <form method="post" class="bg-white p-4 rounded shadow-sm">
+
+            <div class="mb-3">
+                <label for="product_type" class="form-label">取引銘柄:</label>
+                <select name="product_type" id="product_type" onchange="toggle_Payment_Currency()" class="form-select">
+                    <option value="FX" {% if product_type=='FX' %}selected{% endif %}>為替（FX）</option>
+                    <option value="BTC" {% if product_type=='BTC' %}selected{% endif %}>BTC</option>
+                    <option value="GOLD" {% if product_type=='GOLD' %}selected{% endif %}>GOLD</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label id="payment_currency_label" class="form-label">決済通貨:</label>
+                <select name="payment_currency" id="payment_currency" class="form-select">
+                    <!-- 決済通貨の選択肢は自動で追加されます -->
+                </select>
+                <p id="currency_note" class="form-text mt-2"></p>
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">損失許容額（円）:</label>
+                <input type="number" name="amount" value="{{amount}}" required class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="pips" class="form-label">損切りpips:</label>
+                <input type="number" step="0.1" name="pips" value="{{ pips }}" required class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="spread" class="form-label">スプレッド（pips）:</label>
+                <input type="number" step="0.1" name="spread" value="{{ spread }}" class="form-control">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <input type="submit" value="ロットを計算する" class="btn btn-primary">
+                <button type="button" onclick="location.href='/'" class="btn btn-secondary">リセットする</button>
+            </div>
+        </form>
+
+        {% if LOT is not none %}
+        <hr class="my-4">
+        <div class="alert alert-info">
+            <p><strong>適正ロット:</strong> {{ '%.2f' | format(LOT) }} ロット</p>
+            <p id="real_time_rate">{{ payment_currency }}JPYのリアルタイムレート: {{ real_time_rate }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <script>
+        function UpdateCurrencyOptions(currencyList, selected_currency) {
+            const PaymentCurrency = document.getElementById("payment_currency");
+
+            // 選択肢をクリア
+            PaymentCurrency.innerHTML = '';
+
+            currencyList.forEach(currency => {
+                const option = document.createElement('option');
+                option.value = currency;
+                option.text = currency;
+
+                if (option.value === selected_currency) {
+                    option.selected = true;
+                }
+                PaymentCurrency.appendChild(option)
+
+            });
+
+        }
+
+        function toggle_Payment_Currency() {
+
+            const ProductType = document.getElementById("product_type").value;
+            let selected_currency = "{{ payment_currency | default('') }}";
+            const CurrencyNote = document.getElementById("currency_note")
+
+            if (ProductType === 'FX') {
+                const OptionFX = ["JPY", "USD", "EUR", "GBP", "AUD", "NZD"]
+                UpdateCurrencyOptions(OptionFX, selected_currency)
+                CurrencyNote.textContent = '';
+
+            } else if (ProductType === "BTC") {
+                const optionCrypt = ['JPY', 'USD'];
+                UpdateCurrencyOptions(optionCrypt, selected_currency)
+                CurrencyNote.textContent = '※仮想通貨の決済通貨はJPYまたはUSDのみ選択できます';
+
+            } else if (ProductType === "GOLD") {
+                const optionGOLD = ['USD'];
+                UpdateCurrencyOptions(optionGOLD, selected_currency)
+                CurrencyNote.textContent = '※GOLDの決済通貨はUSDのみ選択できます';
+            }
+        }
+        window.onload = toggle_Payment_Currency;
+
+    </script>
+</body>
+
+</html>
