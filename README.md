@@ -15,7 +15,7 @@ GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リア�
 - 💸 損切り幅・許容損失から**適正ロットを自動計算**
 - 🔄 API経由で**リアルタイムレートを取得**
 - 📱 モバイルでも使いやすいシンプルUI（Bootstrap）
-- 🌐 [WordPressブログにも埋め込み済み](https://your-blog-url.com)
+- 🌐 [WordPressブログにも埋め込み済み](https://fx-lite.net/lot-calc-tool/)
 
 ---
 
@@ -31,7 +31,7 @@ GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リア�
 
 ## 🚀 Live Demo
 
-👉 [アプリを使ってみる](https://your-render-url.onrender.com)
+👉 [アプリを使ってみる](https://fx-lite.net/lot-calc-tool/)
 
 ---
 
