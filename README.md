@@ -11,11 +11,11 @@ GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リア�
 
 ## できること
 
-- 💹 為替 / GOLD / BTCなどに対応した**汎用ロット計算**
-- 💸 損切り幅・許容損失から**適正ロットを自動計算**
-- 🔄 API経由で**リアルタイムレートを取得**
-- 📱 モバイルでも使いやすいシンプルUI（Bootstrap）
-- 🌐 [WordPressブログにも埋め込み済み](https://fx-lite.net/lot-calc-tool/)
+- 為替 / GOLD / BTCなどに対応した**汎用ロット計算**
+- 損切り幅・許容損失から**適正ロットを自動計算**
+- API経由で**リアルタイムレートを取得**
+- モバイルでも使いやすいシンプルUI（Bootstrap）
+- [WordPressブログにも埋め込み済み](https://fx-lite.net/lot-calc-tool/)
 
 ---
 
@@ -29,22 +29,23 @@ GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リア�
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 [アプリを使ってみる](https://fx-lite.net/lot-calc-tool/)
-
----
-
-## 📌 Usage（使い方）
-
-1. 決済通貨を選択（例：JPY）
-2. 許容損失額を入力（円/ドルなど）
-3. 損切りpipsとスプレッドを入力
-4. 自動でロット数（10万通貨単位）が表示されます
+[アプリを使ってみる](https://fx-lite.net/lot-calc-tool/)
 
 ---
 
-## 🧑‍💻 Author
+## Usage（使い方）
+
+1. 取引の種類を選択（FX,GOLD、ビットコインから選択）
+2. 決済通貨を選択（例：JPY）
+3. 許容損失額を入力（円/ドルなど）
+4. 損切りpipsとスプレッドを入力
+5. 自動でロット数（10万通貨単位）が表示されます
+
+---
+
+## Author
 
 Kei/ [@Kei124](https://github.com/Keidai124)
 
