@@ -1,4 +1,4 @@
-# 🌍 Lot Calculation Tool for Forex & Crypto Traders
+ Lot Calculation Tool
 
 海外FXで損失額を一定に抑えるための「ロット計算ツール」をFlaskで開発しました。  
 GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リアルタイムの為替レートを使った計算が可能です。
@@ -31,7 +31,7 @@ GOLD（XAUUSD）やビットコイン（BTCUSD）などにも対応し、リア�
 
 ## Live Demo
 
-[アプリを使ってみる](https://fx-lite.net/lot-calc-tool/)
+⇒[アプリを使ってみる](https://fx-lite.net/lot-calc-tool/)
 
 ---
 
